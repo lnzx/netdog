@@ -25,6 +25,10 @@ func main() {
 	}
 
 	lines := strings.Split(string(output), ";")
+	if len(lines) < 9 {
+		log.Println("Not enough data available yet")
+		return
+	}
 	tx := lines[9]
 	usedBytes := HumanReadableToInt(tx)
 	log.Println("上传:", tx, "byte:", usedBytes)
